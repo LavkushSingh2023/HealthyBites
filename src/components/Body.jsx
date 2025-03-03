@@ -16,11 +16,15 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-    const data = await fetch(DATA_API);
-    const jsonData = await data.json();
-    const restaurants = jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
-    setRestaurants(restaurants);
-        };
+        try{
+            const data = await fetch(DATA_API);
+            const jsonData = await data.json();
+            const restaurants = jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+            setRestaurants(restaurants);
+        }catch(error){
+            console.error("Fetch failed: ", error)
+        }
+    };
 
  const handleSearch = () => {
                         const searchData = restaurants.filter((res) => 
