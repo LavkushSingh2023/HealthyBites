@@ -26,7 +26,7 @@ const ItemList = ({ items }) => {
                 <div className="w-3/12 my-10 relative">
                     <img
                         className="min-w-32 h-32 object-cover rounded"
-                        src={CDN_URL + item.card.info.imageId}
+                        src={CDN_URL + "/" + item.card.info.imageId}
                         alt={item.card.info.name || "Menu Item"}
                     />
                     <div className="absolute top-28 left-10">
